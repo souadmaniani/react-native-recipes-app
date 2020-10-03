@@ -6,11 +6,12 @@ import { toggleFavorite } from '../store/actions/meals';
 
 import CustomHeaderButton from '../components/CustomHeaderButton';
 import DefaultText from '../components/DefaultText';
+import Colors from '../constants/Colors';
 
 const ListItem = (props) => {
     return (
         <View style={styles.listItem}>
-            <DefaultText>{props.children}</DefaultText>
+            <DefaultText style={{color: Colors.primary, fontSize: 16, fontFamily: 'nunito-semi-bold-italic'}}>{props.children}</DefaultText>
         </View>
     )
 };
@@ -42,9 +43,9 @@ const MealDetailScreen = props => {
         <ScrollView>
             <Image source={mealSelected.imageUrl} style={styles.image} />
             <View style={styles.details}>
-                <DefaultText>{mealSelected.duration}m</DefaultText>
-                <DefaultText>{mealSelected.complexity.toUpperCase()}</DefaultText>
-                <DefaultText>{mealSelected.affordability.toUpperCase()}</DefaultText>
+                <DefaultText style={{ color: Colors.second }}>{mealSelected.duration}m</DefaultText>
+                <DefaultText style={{ color: Colors.second }}>{mealSelected.complexity.toUpperCase()}</DefaultText>
+                <DefaultText style={{ color: Colors.second }}>{mealSelected.affordability.toUpperCase()}</DefaultText>
             </View>
             <Text style={styles.title}>Ingredients</Text>
             {mealSelected.ingredients.map(ingredient => <ListItem key={ingredient}> {ingredient} </ListItem>)}
@@ -86,9 +87,14 @@ const styles = StyleSheet.create({
         padding: 15
     },
     title: {
-        fontFamily: "open-sans-bold",
+        fontFamily: "nunito-semi-bold-italic",
         textAlign: 'center',
-        fontSize: 22
+        fontSize: 24,
+        color: 'white',
+        backgroundColor:Colors.second,
+        alignSelf: 'center',
+        paddingHorizontal: 15,
+        paddingVertical: 7
     },
     listItem: {
         marginVertical: 10,

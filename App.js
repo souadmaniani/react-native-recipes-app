@@ -18,7 +18,10 @@ const store = createStore(rootReducer);
 const fetchFonts = () => {
   return Font.loadAsync({
     'open-sans-regular': require('./assets/fonts/OpenSans-Regular.ttf'),
-    'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf')
+    'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
+    'nunito-black': require('./assets/fonts/Nunito-Black.ttf'),
+    'nunito-regular': require('./assets/fonts/Nunito-Regular.ttf'),
+    'nunito-semi-bold-italic': require('./assets/fonts/Nunito-SemiBoldItalic.ttf'),
   });
 };
 
@@ -36,7 +39,7 @@ export default function App() {
   }
 
   return (
-    <Provider store= {store}>
+    <Provider store={store}>
       <MealsNavigator />
     </Provider>
 

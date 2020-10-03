@@ -3,32 +3,31 @@ import {
     View, StyleSheet, Text,
     TouchableOpacity, ImageBackground
 } from 'react-native';
+import Colors from '../constants/Colors';
 
 import DefaultText from '../components/DefaultText';
 
 const MealItem = props => {
     return (
         <View style={styles.itemData}>
-            <TouchableOpacity onPress= {props.onSelectMeal}>
+            <TouchableOpacity onPress={props.onSelectMeal}>
                 <View>
                     <View style={{ ...styles.mealRow, ...styles.mealHeader }}>
                         <ImageBackground
                             style={styles.bgImage}
                             source={props.image}>
-                            <View style= {styles.titleContainer}>
+                            <View style={styles.titleContainer}>
                                 <Text style={styles.title} numberOfLines={1}> {props.title} </Text>
                             </View>
 
                         </ImageBackground>
                     </View>
                     <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
-                        <DefaultText>{props.duration}m</DefaultText>
-                        <DefaultText>{props.complexity.toUpperCase()}</DefaultText>
-                        <DefaultText>{props.affordability.toUpperCase()}</DefaultText>
+                        <DefaultText style={{ color: Colors.second }}>{props.duration}m</DefaultText>
+                        <DefaultText style={{ color: Colors.second }}>{props.complexity.toUpperCase()}</DefaultText>
+                        <DefaultText style={{ color: Colors.second }}>{props.affordability.toUpperCase()}</DefaultText>
                     </View>
                 </View>
-
-
             </TouchableOpacity>
         </View >
 
@@ -42,7 +41,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#dcdcdc',
         borderRadius: 10,
         overflow: 'hidden',
-        marginVertical:10
+        marginVertical: 10
     },
     mealRow: {
         flexDirection: 'row',

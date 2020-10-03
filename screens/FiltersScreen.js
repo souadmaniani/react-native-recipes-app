@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, StyleSheet, Text, Switch, Platform } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import CustomHeaderButton from '../components/CustomHeaderButton';
 import Colors from '../constants/Colors';
-import {setFilters} from '../store/actions/meals';
+import { setFilters } from '../store/actions/meals';
 
 
 const FilterSwitch = props => {
 
     return (
-        <View style={styles.containerFliter}>
-            <Text>{props.label} </Text>
+        <View style={styles.containerFliter} >
+            <Text style={styles.label}>{props.label} </Text>
             <Switch value={props.state}
                 trackColor={{ true: Colors.primary }}
                 thumbColor={Platform.OS === 'android' ? Colors.primary : ''}
@@ -38,7 +38,7 @@ const FiltersScreen = props => {
             vegan: isVegan,
             vegetarian: isVegetarian
         };
-        
+
         dispatch(setFilters(appliedFilters));
     }, [isGluttenFree, isLactoseFree, isVegan, isVegetarian]);
 
@@ -49,22 +49,31 @@ const FiltersScreen = props => {
     return (
         <View style={styles.screen}>
             <Text style={styles.title}>Available Filters / Restrictions</Text>
+           
             <FilterSwitch label="Glutten-free"
                 state={isGluttenFree}
                 OnChange={(newValue) => setIsGluttenFree(newValue)}
             />
+            <View style={{ width: '100%', borderBottomColor: '#ccc', borderBottomWidth: 1 }}>
+            </View>
             <FilterSwitch label="Lactose-free"
                 state={isLactoseFree}
                 OnChange={(newValue) => setIsLactoseFree(newValue)}
             />
+            <View style={{ width: '100%', borderBottomColor: '#ccc', borderBottomWidth: 1 }}>
+            </View>
             <FilterSwitch label="Vegan"
                 state={isVegan}
                 OnChange={(newValue) => setIsVegan(newValue)}
             />
+            <View style={{ width: '100%', borderBottomColor: '#ccc', borderBottomWidth: 1 }}>
+            </View>
             <FilterSwitch label="Vegetarian"
                 state={isVegetarian}
                 OnChange={(newValue) => setIsVegetarian(newValue)}
             />
+            <View style={{ width: '100%', borderBottomColor: '#ccc', borderBottomWidth: 1 }}>
+            </View>
         </View>
     );
 };
@@ -101,17 +110,28 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     title: {
-        fontFamily: "open-sans-bold",
+        fontFamily: "nunito-semi-bold-italic",
         textAlign: 'center',
         fontSize: 22,
-        margin: 20
+        margin: 20,
+        color: Colors.primary,
+        borderColor: Colors.primary,
+        borderRadius: 25,
+        borderWidth: 2,
+        paddingHorizontal: 30,
+        paddingVertical: 10
     },
     containerFliter: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         width: '80%',
-        marginVertical: 15
+        marginVertical: 20,
+    },
+    label: {
+        fontFamily: 'nunito-semi-bold-italic',
+        fontSize: 17,
+        color: Colors.second
     }
 })
 

@@ -17,10 +17,11 @@ import Colors from '../constants/Colors';
 // HEADER STYLE FOR THE STACK
 const defaultStackNavOptions = {
     headerStyle: {
-        backgroundColor: Platform.OS === 'ios' ? '' : Colors.primary
+        backgroundColor: Platform.OS === 'ios' ? '' : Colors.primary,
+        
     },
-    headerTitleStyle: { fontFamily: 'open-sans-bold' },
-    headerBackTitleStyle: { fontFamily: 'open-sans-bold' },
+    headerTitleStyle: { fontFamily: 'nunito-black', fontSize: 24},
+    headerBackTitleStyle: { fontFamily: 'nunito-black' },
     headerTintColor: Platform.OS === 'ios' ? Colors.primary : 'white'
 };
 
@@ -65,7 +66,7 @@ const tabScreenConfig = {
             },
             tabBarColor: Colors.primary,
             tabBarLabel: Platform.OS === 'android' ?
-                <Text style={{ fontFamily: 'open-sans-bold' }}> Meals</Text> :
+                <Text style={{ fontFamily: 'nunito-regular', fontSize: 16 }}> Meals</Text> :
                 'Meals'
         }
     },
@@ -82,7 +83,7 @@ const tabScreenConfig = {
             },
             tabBarColor: Colors.second,
             tabBarLabel: Platform.OS === 'android' ?
-                <Text style={{ fontFamily: 'open-sans-bold' }}> Favourite</Text> :
+                <Text style={{ fontFamily: 'nunito-regular', fontSize: 16 }}> Favourite</Text> :
                 'Favourite'
         }
     }
@@ -98,7 +99,7 @@ const MealsFavTabNavigator =
         :
         createBottomTabNavigator(tabScreenConfig, {
             tabBarOptions: {
-                labelStyle: { fontFamily: 'open-sans-regular' },
+                labelStyle: { fontFamily: 'nunito-regular' },
                 activeTintColor: "white",
             },
 
@@ -124,7 +125,8 @@ const MainNavigator = createDrawerNavigator({
         contentOptions: {
             activeTintColor: Colors.second,
             labelStyle: {
-                fontFamily: 'open-sans-bold'
+                fontFamily: 'nunito-regular',
+                fontSize: 16
             }
         }
     });
